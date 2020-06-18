@@ -1,0 +1,128 @@
+@import url('https://fonts.googleapis.com/css?family=Kulim+Park&display=swap');
+*{
+    padding: 0px;
+    margin: 0;
+    box-sizing: border-box;
+}
+body{
+    background:#1d1d1d;
+    color:white;
+}
+iframe{
+    width:100%;
+    height:96vh;
+    color: white;
+    overflow-wrap: break-word;
+    border:none;
+    padding:none;
+}
+.undoBox{
+    display:flex;
+   background-color: rgba(255, 255, 255, 0.1);
+    right:5px;
+    position:fixed;
+    color:white;
+    width:154px;
+    font-size:20px;
+    font-family: Kulim Park;
+    justify-content:center;
+    margin:10px;
+    padding:6px;
+    border-radius:100px;
+}
+.undoBox i {
+    margin-left:10px;
+    cursor:pointer;
+}
+.undoBox h3{
+    background-color: rgba(255, 255, 255, 0.2);
+    width:50px;
+    display:flex;
+    font-size:19px;
+    justify-content:center;
+    letter-spacing:2px;
+    border-radius:100px;
+}
+.allfunctions{
+   background-color: rgba(255, 255, 255, 0.1);
+    display:flex;
+    position:fixed;
+    bottom:0px;
+    width:100%;
+    height:30px;
+    font-size: 20px;
+    justify-content:center;
+}
+.allfunctions i{
+    margin-top:3px;
+    transition:1s;
+    margin-left:50px;
+    cursor: pointer;
+    margin-right:50px;
+}
+.allfunctions i:hover {
+color:#ccc;
+}
+::-ms-clear { display: none; }
+.name{
+    position:absolute;
+    left:0px;
+    font-size:15px;
+    font-family: Kulim Park;
+    color: white;
+    height:35px;
+    text-align:center;
+    background:rgba(255, 255, 255, 0.1);
+    border:none;
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: white;
+  opacity: 1; /* Firefox */
+}
+
+:-ms-input-placeholder { /* Internet Explorer 10-11 */
+  color: white;
+}
+
+::-ms-input-placeholder { /* Microsoft Edge */
+  color: white;
+  font-family: Kulim Park;
+}
+.convert{
+    background:rgba(255, 255, 255, 0.2);
+    border:none;
+    position:fixed;
+    top:50px;
+    padding: 5px;
+    right:0px;
+    font-family: cursive;
+    margin-right: -1400px;
+    width:1200px;
+    height:600px;
+}
+#menu{
+    z-index: 20;
+}
+#terminalButton{
+    position:absolute;
+    right:0;
+    margin-right: 15px;
+    margin-top:3px;
+}
+
+.terminal{
+    position:fixed;
+    bottom:0;
+    margin-left:-1400px;
+    margin-bottom:30px;
+    width:100%;
+    height:500px;
+}
+#log{
+    width:100%;
+     background:rgba(0, 0, 0, 0.9);
+     border:none;
+    height:100%;
+    color: white;
+    padding:15px;
+}

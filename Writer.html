@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+	<meta charset="utf-8" />
+	<title>Writer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="https://fonts.googleapis.com/css?family=Anton&display=swap" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Kulim+Park&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@sweetalert2/theme-dark@3/dark.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.css">
+	<link rel="stylesheet" href="Writer.css">
+	<link rel="stylesheet" href="Writer2.css">
+</head>
+
+<body onload="typer()">
+
+	<div class="undoBox">
+		<h3 id="wordCounter"> 0 </h3>
+		<i onclick="undo()" class="fas fa-reply"></i>
+		<i onclick="redo()" class="fas fa-share"></i>
+		<i onclick="menu()" id="menu" class="fas fa-ellipsis-v"></i>
+	</div>
+	
+	<iframe id="myIframe" name="typeHere">&#160;</iframe>
+
+	<div id="terminal" class="terminal">
+		<textarea id="log"></textarea>
+	</div>
+
+	<div class="allfunctions">
+		<input id="userName" class="name" placeholder="Name">
+		<i onclick="bold()" class="fas fa-bold"></i>
+		<i onclick="italic()" class="fas fa-italic"></i>
+		<i onclick="underline()" class="fas fa-underline"></i>
+		<i onclick="cross()" class="fas fa-strikethrough"></i>
+		<i onclick="save()" class="fas fa-download"></i>
+		<i onclick="code()" id="saveHold" class="fas fa-save"></i>
+		<i id="fileOpenBtn" class="fas fa-folder-open"></i>
+		<input type="file" id="realFileOpenBtn" hidden="hidden">
+		<i onclick="terminal()" id="terminalButton" class="fas fa-terminal"></i>
+	</div>
+
+	<div class="menu">
+		<textarea id="convert" class="convert"></textarea>
+	</div>
+	<script type="text/javascript">
+		function typer(){
+    typeHere.document.designMode = 'On';
+    typeHere.document.body.style.color='white';
+    typeHere.document.body.style.fontFamily = 'cursive';
+    typeHere.document.body.style.wordWrap= 'break-word';
+    typeHere.document.body.style.fontSize = '20px';
+    };
+	</script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.2.0/anime.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@9/dist/sweetalert2.min.js"></script>
+	<script src="hrrps://cdnjs.cloudflare.com/ajax/libs/garlic.js/1.2.2/garlic-standalone.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/FileSaver.js/1.3.8/FileSaver.js"></script>
+	<script src="js/FileSaver.js"></script>
+	<script src="Writer.js"></script>
+	<script src="Writer2.js"></script>
+	<script>
+		function save() {
+
+            var userInput = document.getElementById('myIframe').contentWindow.document.body.innerHTML;
+			   userInput= userInput.split("</div>").join("\n");
+               userInput= userInput.split("<div>").join("");
+               userInput= userInput.split("<div>").join("");
+               userInput= userInput.split("&nbsp;").join("");
+               userInput= userInput.split("<br>").join("\n");
+			console.log(userInput);
+			var name = document.getElementById("userName").value;
+
+            var blob = new Blob([userInput], { type: "text/plain;charset=utf-8" });
+            saveAs(blob, name);
+        }
+	</script>
+
+</body>
+
+</html>
